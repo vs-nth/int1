@@ -54,20 +54,14 @@ class BikePosition(Position):
 class BikeLease:
     """
     Bike lease interface to match a user to closest bike on a FCFS basis
-    :param list_of_bike_positions - list of BikePosition Objects (x,y) containing x and y co-ordinates of bikes
-    :param list_of_user_positions - list of UserPosition Objects (x,y) containing x and y co-ordinates of users
-
+    list_of_bike_positions - list of BikePosition Objects (x,y) containing x and y co-ordinates of bikes
+    list_of_user_positions - list of UserPosition Objects (x,y) containing x and y co-ordinates of users
     """
     list_of_bike_positions: List[BikePosition] = []
     list_of_user_positions: List[UserPosition] = []
     assigned_bikes: List[tuple] = []
 
     def __init__(self, bikes: List[BikePosition], users: List[UserPosition]) -> None:
-        """
-        Initialize vars
-        :param bikes:
-        :param users:
-        """
         self.list_of_bike_positions = bikes
         self.list_of_user_positions = users
         self.assigned_bikes = []
@@ -98,7 +92,6 @@ class BikeLease:
     def assign_bikes(self) -> None:
         """
         Assign the bikes to each user in a first come first serve basis
-        :return: list containing tuples of UserPosition and matched BikePosition
         """
         for user_pos in self.list_of_user_positions:
             min_distance = 0
@@ -147,3 +140,4 @@ if __name__ == "__main__":
 
     run_test(users_pos, bikes_pos, test_ans)
     print('test 2 correct')
+
