@@ -77,7 +77,7 @@ class BikeLease:
     def __repr__(self):
         string = ""
         for i in self.assigned_bikes:
-            string += f'User: {i[0]}, Bike: {i[1]} \n'
+            string += f'User: {i[0]}, Bike: {i[1]}\n'
         return string
 
     @staticmethod
@@ -123,7 +123,8 @@ def run_test(users: List[tuple], bikes: List[tuple], test_answer: List[tuple]) -
     # convert test_ans into (UserPos, BikePos) tuple
     mod_answer = [(UserPosition(_[0][0], _[0][1]), BikePosition(_[1][0], _[1][1])) for _ in test_answer]
     assigned_bikes = BikeLease(mod_bikes, mod_users)
-
+    # assigned_bikes.assigned_bikes contains the data in the required format
+    print(assigned_bikes, '\n', assigned_bikes.assigned_bikes)
     assert assigned_bikes.assigned_bikes == mod_answer
 
 
@@ -145,7 +146,7 @@ if __name__ == "__main__":
 
     run_test(users_pos, bikes_pos, test_ans)
 
-    print('test 1 correct')
+    print('test 1 correct \n#############################################\n')
 
     #############################################
 
@@ -168,8 +169,7 @@ if __name__ == "__main__":
                 ((4, 3), (5, 5))]
 
     run_test(users_pos, bikes_pos, test_ans)
-    print('test 2 correct')
-
+    print('test 2 correct \n#############################################\n')
     #############################################
 
     # 7  xx xx xx xx xx xx xx xx
@@ -189,5 +189,5 @@ if __name__ == "__main__":
                 ((1, 1), (0, 0))]
 
     run_test(users_pos, bikes_pos, test_ans)
-    print('test 3 correct')
+    print('test 3 correct \n#############################################\n')
 
